@@ -8,6 +8,7 @@ start_x = -237
 start_y = 125
 stripe_height = 250/13
 
+draw.speed(100)
 draw.penup()
 
 def rectangle_stripe(x, y, color):
@@ -42,9 +43,28 @@ def draw_stripes():
     rectangle_stripe(-237, 125-stripe_height*9, "white")
     rectangle_stripe(-237, 125-stripe_height*11, "white")
 
+def drawblue(x, y, color):
+    square_height = (7/13) * 250
+    square_width = (0.76) * 250
+    draw.goto(x, y)
+    draw.pendown()
+    draw.color(color)
+    draw.begin_fill()
+    draw.forward(square_width)
+    draw.right(90)
+    draw.forward(square_height)
+    draw.right(90)
+    draw.forward(square_width)
+    draw.right(90)
+    draw.forward(square_height)
+    draw.right(90)
+    draw.end_fill()
+    draw.penup()
+
 
 draw_stripes()
-
+drawblue(-237, 125, "navy")
+draw.hideturtle()
 
 wn = ttl.Screen()
 wn.mainloop()
